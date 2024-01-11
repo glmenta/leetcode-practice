@@ -15,6 +15,7 @@ Given:
         => If the target is less than the midpoint, that means the left pointer to the midpoint is our new search space; vice versa for right pointer
             => midpoint is basically the sum of the left + right divided by 2;
         => We can keep checking this way through a loop
+    6. if we iterated through the array and exit the loop, that means the target was not in the array, return false
 
     let search = function(nums, target) {
         let left = 0;
