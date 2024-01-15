@@ -76,6 +76,33 @@ Given:
     }
 
 # two sum
+Given:
+    nums = [2,7,11,15] target = 9;
+    [0,1] (indexes for 2 and 7)
+
+    1. I need to definitely iterate through the nums array
+    2. I also need to use a hash to store some value using the elements in the nums array
+    3. The problem uses a target value, that must match two elements added up together to reach that target value sum
+    4. Since its a sum, that means subtracting the element's value from the target gives us the other pair for the sum
+    5. I can save that value inside my hash using the index as a value and the difference as a key
+    6. if that difference already exists, then we found the other match for our sum
+    7. I can take the index for both numbers and return it as an array with two num elements
+    8. if we exit the loop, that means we couldnt find any match for our target
+
+    var twoSum = function(nums,target) {
+        let hash = {};
+        for (let i = 0; i < nums.length; i++) {
+            let num = nums[i];
+            let difference = target - num;
+            if (difference in hash) {
+                return [hash[difference], i]
+            } else {
+                hash[num] = i
+            }
+        }
+        return []
+    }
+
 # group anagram
 # top K freq elements
 # Product of Arr Except Self
